@@ -59,6 +59,7 @@ typedef	struct	s_game
 	t_map		map;
 	t_mlx		*mlx; // ho omple la Laia
 	
+	
 }				t_game;
 
 #endif
