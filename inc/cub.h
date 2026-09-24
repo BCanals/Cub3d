@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/18 19:43:43 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/24 19:49:16 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <math.h>
 # include <errno.h>
 # include <stdbool.h>
+# include <string.h>
+# include <stddef.h>
 
 # define WIDTH 1280
 # define HEIGHT 720
@@ -40,13 +42,7 @@ typedef struct s_player
 {
 	float	pos_x;
 	float	pos_y;
-	float	dir_x;
-	float	dir_y;
-	bool	key_up;
-	bool	key_down;
-	bool	key_left;
-	bool	key_right;
-
+	float	dir;
 }				t_player;
 
 typedef struct	s_color
@@ -83,6 +79,7 @@ typedef	struct	s_game
 
 }				t_game;
 
-void	init_player(t_player *player);
+int		parser(int argc, char **argv);
+char	*get_next_line(int fd);
 
 #endif
