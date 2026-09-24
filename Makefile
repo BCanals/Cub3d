@@ -6,12 +6,17 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/09/18 17:42:22 by lartes-s         ###   ########.fr        #
+#    Updated: 2026/09/24 19:20:19 by lartes-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = cub3d
-SRC         = src/render/game.c
+SRC         = src/render/game.c\
+				src/main.c\
+				src/setup.c\
+				src/render/mlx_entry.c\
+				src/render/free_structures.c\
+
 
 LIBFT_DIR   = ./lib/libft
 LIBFT       = $(LIBFT_DIR)/libft.a

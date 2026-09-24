@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/18 19:43:43 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/24 19:18:59 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,7 @@ typedef struct s_player
 {
 	float	pos_x;
 	float	pos_y;
-	float	dir_x;
-	float	dir_y;
-	bool	key_up;
-	bool	key_down;
-	bool	key_left;
-	bool	key_right;
-
+	float	dir;
 }				t_player;
 
 typedef struct	s_color
@@ -83,6 +77,8 @@ typedef	struct	s_game
 
 }				t_game;
 
-void	init_player(t_player *player);
+void	init_structs(t_game *game);
+void	ft_error_msg(char *str, t_game *game);
+void	free_structs(t_game *game);
 
 #endif
