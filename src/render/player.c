@@ -6,10 +6,11 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:42:42 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/18 19:48:38 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/24 16:35:23 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "../../inc/cub.h"
 
 void	init_player( t_player *player)
@@ -33,3 +34,4 @@ int	key_press(int keycode, t_player *player)
 	if (keycode == A)
 		player->key_left = true;
 }
+*/

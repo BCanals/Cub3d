@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:42:53 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/18 18:43:55 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/24 16:35:34 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	draw_square(int x, int y, int size, int color, t_game *game)
 
 void    init_game(t_game *game)
 {
-	init_player(&game->player);
+	//init_player(&game->player);
     game->mlx = mlx_init();
     game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "Game");
     game->img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
