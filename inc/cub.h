@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/25 18:44:52 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/25 19:54:53 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,28 @@
 # define ROT_SPEED 0.05f
 
 # define PI 3.14159265359
+
+typedef struct s_vec2
+{
+	float	x;
+	float	y;
+}				t_vec2;
+
+typedef struct s_hit
+{
+	float	dist;
+	float	wall_x;
+	int		side;
+}				t_hit;
+
+typedef struct s_draw
+{
+	int				line_h;
+	int				start;
+	int				end;
+	int				tex_x;
+	int				tex_y;
+}				t_draw;
 
 typedef struct s_player
 {
@@ -97,11 +119,14 @@ typedef	struct	s_game
 
 }				t_game;
 
-void	init_structs(t_game *game);
-void	ft_error_msg(char *str, t_game *game);
-void	free_structs(t_game *game);
-int		ft_key_hook(int keycode, t_game *game);
-int		close_game(t_game *game);
-int		run_mlx(t_game *game);
+void			init_structs(t_game *game);
+void			ft_error_msg(char *str, t_game *game);
+void			free_structs(t_game *game);
+int				ft_key_hook(int keycode, t_game *game);
+int				close_game(t_game *game);
+int				run_mlx(t_game *game);
+void			render_scene(t_game *game);
+void			put_pixel(t_game *game, int x, int y, int color);
+unsigned int	get_tex_pixel(t_tex *tex, int x, int y);
 
 #endif
