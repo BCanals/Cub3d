@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:45:00 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/24 18:42:19 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/25 18:43:33 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,15 @@ static char	**create_dummy_map(void)
 
 void	init_structs(t_game *game)
 {
-	// Inicialització de punters de textures (per ara a NULL fins al parsing)
-	game->map.tex_n = NULL;
-	game->map.tex_s = NULL;
-	game->map.tex_e = NULL;
-	game->map.tex_o = NULL;
+	game->map.tex_n = ft_strdup("./textures/north.xpm");
+	game->map.tex_s = ft_strdup("./textures/south.xpm");
+	game->map.tex_e = ft_strdup("./textures/east.xpm");
+	game->map.tex_o = ft_strdup("./textures/west.xpm");
 
-	// Dimensions del mapa de prova (8 files x 10 columnes)
 	game->map.n_rows = 8;
 	game->map.n_cols = 10;
 	game->map.map = create_dummy_map();
 
-	// Colors de terra (marró fosc/gris) i sostre (blau cel)
 	game->map.floor.r = 75;
 	game->map.floor.g = 75;
 	game->map.floor.b = 75;
@@ -70,10 +67,8 @@ void	init_structs(t_game *game)
 	game->map.sky.g = 206;
 	game->map.sky.b = 235;
 
-	// Jugador
 	init_player(&game->player);
 
-	// MiniLibX i buffer d'imatge
 	game->mlx = NULL;
 	game->win = NULL;
 	game->img = NULL;

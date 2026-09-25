@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/24 19:18:59 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/25 18:44:52 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@
 # define A 97
 # define S 115
 # define D 100
+# define ESC 65307
+# define ARROW_UP 65362
+# define ARROW_DOWN 65364
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+
+# define MOVE_SPEED 0.1f
+# define ROT_SPEED 0.05f
 
 # define PI 3.14159265359
 
@@ -63,10 +71,22 @@ typedef struct	s_map
 	t_color	sky;
 }				t_map;
 
+typedef struct s_tex
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+	int		width;
+	int		height;
+}				t_tex;
+
 typedef	struct	s_game
 {
 	t_player	player;
 	t_map		map;
+	t_tex		walls[4];
 	void		*mlx;
 	void		*img;
 	void		*win;
@@ -80,5 +100,8 @@ typedef	struct	s_game
 void	init_structs(t_game *game);
 void	ft_error_msg(char *str, t_game *game);
 void	free_structs(t_game *game);
+int		ft_key_hook(int keycode, t_game *game);
+int		close_game(t_game *game);
+int		run_mlx(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 19:11:33 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/24 19:18:21 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/09/25 18:22:39 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,13 @@ void	ft_error_msg(char *str, t_game *game)
 	free_structs(game);
 	printf("%s\n", str);
 	exit(-1);
+}
+
+int	close_game(t_game *game)
+{
+	if (game)
+		free_structs(game);
+	exit(EXIT_SUCCESS);
+	return (0);
 }
 
