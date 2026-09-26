@@ -6,15 +6,15 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 18:42:53 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/24 18:29:21 by becanals         ###   ########.fr       */
+/*   Updated: 2026/09/26 11:15:07 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (!parser(argc, argv))
 		return (0);
-    return (0);
+	return (0);
 }

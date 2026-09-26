@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/24 19:49:16 by becanals         ###   ########.fr       */
+/*   Updated: 2026/09/26 11:29:57 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ typedef	struct	s_game
 }				t_game;
 
 int		parser(int argc, char **argv);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, char **buffer);
 
 #endif

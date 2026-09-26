@@ -6,7 +6,7 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:49:18 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/07/05 12:17:38 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/26 12:07:44 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	unsigned int	size;
 	char			*rtrn;
@@ -32,5 +32,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(rtrn, s2, s2_len);
 	rtrn -= s1_len;
 	rtrn[size - 1] = '\0';
+	free(s1);
+	s1 = NULL;
+	free(s2);
+	s2 = NULL;
 	return (rtrn);
 }

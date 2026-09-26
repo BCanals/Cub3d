@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/09/24 19:55:10 by becanals         ###   ########.fr       */
+/*   Updated: 2026/09/26 12:09:18 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ static int	check_file_ext(char *file_name)
 
 int	parser(int argc, char **argv)
 {
-	int	fd;
+	int		fd;
+	char	*line;
+	char	**buffer;
 
 	if (argc < 2)
 		return (printf("Usage: %s [map]\n", argv[0]), 0);
@@ -35,6 +37,14 @@ int	parser(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return (printf("Error on open: %s\n", strerror(errno)), 0);
-	printf("%s\n", get_next_line(fd));
+	buffer = ft_calloc(sizeof(char *), 1);
+	line = get_next_line(fd, buffer);
+	printf("%s\n", line);
+	free(line);
+	line = get_next_line(fd, buffer);
+	if (line)
+		printf("%s\n", line);
+	free(*buffer);
+	free(buffer);
 	return (printf("Tot en ordre de moment!\n"), 1);
 }
