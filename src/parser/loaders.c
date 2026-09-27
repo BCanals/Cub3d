@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:12:43 by bizcru            #+#    #+#             */
-/*   Updated: 2026/09/27 23:32:05 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/28 01:43:40 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static t_game	*load_t_game()
 {
 	t_game	*game;
 
-	game = ft_calloc(sizeof(t_game), 1);
+	game = calloc(sizeof(t_game), 1);
 	if (!game)
 	{
 		printf("Error on malloc: %s\n", strerror(errno));
@@ -80,15 +80,21 @@ static t_game	*load_t_game()
 
 int	load_t_parser(t_parser *data, char *file_name)
 {
+	data->buffer = NULL;
+	data->line = NULL;
+	data->game = NULL;
 	data->fd = open(file_name, O_RDONLY);
 	if (data->fd == -1)
 		return (printf("Error on open: %s\n", strerror(errno)), 0);
+	data->line = get_next_line(data->fd, &data->buffer);
+	if (!data->line)
+	{
+		printf("Scene file not readable or empty.\n");
+		return (clean_t_parser(data), 0);
+	}
 	data->game = load_t_game();
 	if (!data->game)
-	{
-		clean_t_parser(data);
-		return (0);
-	}
+		return (clean_t_parser(data), 0);
 	return (1);
 }
 

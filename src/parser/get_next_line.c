@@ -6,7 +6,7 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
-/*   Updated: 2026/09/26 12:08:15 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/28 00:40:57 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ static char	*gnl_read(int fd, char **buffer)
 			return (NULL);
 		read_bytes = read(fd, reading, 42);
 		if (read_bytes < 0)
+		{
+			printf("Error on reading: %s\n", strerror(errno));
 			return (gnl_free(&reading), gnl_free(buffer));
+		}
 		else if (read_bytes == 0)
 		{
 			gnl_free(&reading);

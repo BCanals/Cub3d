@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/09/27 23:31:46 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/28 01:40:34 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static int	check_file_ext(char *file_name)
 		return (0);
 	return (1);
 }
+
 /*
 static int	load_scene(t_parser *data)
 {
@@ -39,11 +40,10 @@ int	parser(int argc, char **argv)
 		return (printf("The scene file must be in '*.cub' format\n"), 0);
 	if (!load_t_parser(&p_data, argv[1]))
 		return (0);
-	//if (!load_scene(&p_data))
-	//	return (0);
+//	if (!load_scene(&p_data))
+//		return (0);
 
 	
-	p_data.line = get_next_line(p_data.fd, &p_data.buffer);
 	printf("%s\n", p_data.line);
 	
 	clean_t_parser(&p_data);
