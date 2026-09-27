@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/09/26 12:09:18 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/27 23:10:17 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,30 @@ static int	check_file_ext(char *file_name)
 	return (1);
 }
 
+/*static int	load_map(t_parser *data)
+{
+
+	while
+}*/
+
 int	parser(int argc, char **argv)
 {
-	int		fd;
-	char	*line;
-	char	**buffer;
+	t_parser	p_data;
 
 	if (argc < 2)
 		return (printf("Usage: %s [map]\n", argv[0]), 0);
 	if (!check_file_ext(argv[1]))
 		return (printf("The scene file must be in '*.cub' format\n"), 0);
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		return (printf("Error on open: %s\n", strerror(errno)), 0);
-	buffer = ft_calloc(sizeof(char *), 1);
-	line = get_next_line(fd, buffer);
-	printf("%s\n", line);
-	free(line);
-	line = get_next_line(fd, buffer);
-	if (line)
-		printf("%s\n", line);
-	free(*buffer);
-	free(buffer);
+	if (!load_t_parser(&p_data, argv[1]))
+		return (0);
+	/*if (!load_map(&p_data))
+		return (0);
+	*/
+
+	
+	p_data.line = get_next_line(p_data.fd, &p_data.buffer);
+	printf("%s\n", p_data.line);
+	
+	clean_t_parser(&p_data);
 	return (printf("Tot en ordre de moment!\n"), 1);
 }

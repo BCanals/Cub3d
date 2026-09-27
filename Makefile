@@ -6,13 +6,14 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/09/24 19:57:59 by becanals         ###   ########.fr        #
+#    Updated: 2026/09/27 22:18:25 by bizcru           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = cub3d
 SRC_DIR		= src
-SRC_NAMES   = render/game.c parser/parser.c parser/get_next_line.c
+SRC_NAMES   = render/game.c parser/parser.c parser/get_next_line.c \
+			  parser/loaders.c parser/cleaners.c
 SRC			= $(addprefix $(SRC_DIR)/, $(SRC_NAMES))
 
 

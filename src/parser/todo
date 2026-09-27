@@ -1,0 +1,6 @@
+[ ] - gestio d'error de read directament des de get next line 
+[ ] - treure el malloc de buffer de load_t_parser? Crec que no cal
+[ ] - cleaner de game: destuir els punters de mlx: mlx, img, win i data
+[ ] - 
+[ ] - 
+[ ] - 

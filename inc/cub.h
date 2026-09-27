@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/26 11:29:57 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/27 23:25:09 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ typedef struct	s_map
 	t_color	sky;
 }				t_map;
 
+typedef enum	enum_line
+{
+	TEX_N,
+	TEX_S,
+	TEX_E,
+	TEX_O,
+	FLOOR,
+	SKY,
+	MAP
+}				e_line;
+
 typedef	struct	s_game
 {
 	t_player	player;
@@ -79,7 +90,26 @@ typedef	struct	s_game
 
 }				t_game;
 
-int		parser(int argc, char **argv);
+typedef struct	s_parser
+{
+	char		*buffer;
+	char		*line;
+	int			fd;
+	t_game		*game;
+}				t_parser;
+
+// get_next_line.c functions
 char	*get_next_line(int fd, char **buffer);
+
+// parser.c functions
+int		parser(int argc, char **argv);
+
+// loaders.c funcions
+int		load_t_parser(t_parser *data, char *file_name);
+
+// cleaners.c funcions
+void	clean_t_map(t_map *map);
+void	clean_t_game(t_game *game);
+void	clean_t_parser(t_parser *data);
 
 #endif
