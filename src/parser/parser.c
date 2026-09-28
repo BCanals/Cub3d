@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/09/28 01:40:34 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/28 02:07:52 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@ static int	check_file_ext(char *file_name)
 	return (1);
 }
 
-/*
+
 static int	load_scene(t_parser *data)
 {
-	while
+	while (data->line)
+	{
+		printf("%s", data->line);
+		free(data->line);
+		data->line = get_next_line(data->fd, &data->buffer);
+	}
+	return (1);
 }
-*/
+
 int	parser(int argc, char **argv)
 {
 	t_parser	p_data;
@@ -40,12 +46,9 @@ int	parser(int argc, char **argv)
 		return (printf("The scene file must be in '*.cub' format\n"), 0);
 	if (!load_t_parser(&p_data, argv[1]))
 		return (0);
-//	if (!load_scene(&p_data))
-//		return (0);
+	if (!load_scene(&p_data))
+		return (0);
 
-	
-	printf("%s\n", p_data.line);
-	
 	clean_t_parser(&p_data);
 	return (printf("Tot en ordre de moment!\n"), 1);
 }
