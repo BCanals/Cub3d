@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/27 23:25:09 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/09/28 23:51:39 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ typedef enum	enum_line
 	TEX_O,
 	FLOOR,
 	SKY,
-	MAP
+	MAP,
+	ERROR
 }				e_line;
 
 typedef	struct	s_game
@@ -95,6 +96,7 @@ typedef struct	s_parser
 	char		*buffer;
 	char		*line;
 	int			fd;
+	e_line		line_type;
 	t_game		*game;
 }				t_parser;
 
@@ -111,5 +113,8 @@ int		load_t_parser(t_parser *data, char *file_name);
 void	clean_t_map(t_map *map);
 void	clean_t_game(t_game *game);
 void	clean_t_parser(t_parser *data);
+
+// scene_read.c funcions
+void	read_scene_line(t_parser *data);
 
 #endif
