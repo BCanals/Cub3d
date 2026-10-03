@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:46:12 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/03 12:31:33 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/03 22:25:48 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,9 @@ static e_line	get_line_type(char *str)
 	return (ERROR);
 }
 
-static int	parse_map()
-{
-	printf("parsing map...\n");
-	return (1);
-}
-
-static int parse_fc()
-{
-	printf("parsing floor/ceiling...\n");
-	return (1);
-}
-
-static int parse_wall()
-{
-	printf("parsing wall texture...\n");
-	return (1);
-}
-
 static int	parse_line(t_parser *data)
 {
+	printf("parsed = %i\n", data->parsed_elements);
 	if (data->line_type == MAP)
 	{
 		if (data->parsed_elements < 6)
@@ -67,12 +50,12 @@ static int	parse_line(t_parser *data)
 	}
 	else if (data->line_type == FLOOR || data->line_type == SKY)
 	{
-		if (!parse_fc())
+		if (!parse_fc(data))
 			return (0);
 	}
 	else
 	{
-		if (!parse_wall())
+		if (!parse_wall(data))
 			return (0);
 	}
 	data->parsed_elements++;
@@ -82,7 +65,6 @@ static int	parse_line(t_parser *data)
 void	read_scene_line(t_parser *data)
 {
 	data->line_type = get_line_type(data->line);
-	printf("line type is: %i\n", data->line_type);
 	if (data->line_type == ERROR)
 	{
 		printf ("Error\nUndefined line type at: %s", data->line);

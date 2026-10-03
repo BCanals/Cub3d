@@ -1,5 +1,10 @@
 [ ] - cleaner de game: destuir els punters de mlx: mlx, img, win i data
 [ ] - unafunció que imprimeixi el usage d'exemple de la scene file pot ser majo
-[ ] - parseig de textures
-[ ] - parseig de flor/ceiling
 [ ] - parseig de mapa amb flood fill :)
+
+PREGUNTES AMB LA LAIA:
+[ ] - Mirar si té sentit tenir fds de les textures de les parets en lloc de les strings del nom de l'arxiu
+
+
+CASOS LIMIT PER TESTEJAR
+[ ] - que passa si hi ha més d'un arxiu en les texture files a l'arxiu de scene

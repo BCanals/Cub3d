@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/03 12:29:52 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/03 22:23:53 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@
 # define D 100
 
 # define ERR "Error\n"
+# define MALL_ERR "Malloc error\n"
 # define MAP_N_LAST "Scene file: all elements must be defined before map\n"
+# define TEX_EMPTY "No path provided\n"
+# define RGB_EMPTY "No color params provided\n"
+# define RGB_FORM_ERR "Wrong format. Expected R,G,B colors in range [0,255]\n"
 
 # define PI 3.14159265359
 
@@ -53,7 +57,7 @@ typedef struct	s_color
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
-}		t_color;
+}				t_color;
 
 typedef struct	s_map
 {
@@ -109,6 +113,18 @@ char	*get_next_line(int fd, char **buffer);
 
 // parser.c functions
 int		parser(int argc, char **argv);
+
+// parser_utils.c functions
+int		parse_wall(t_parser *data);
+int		parse_fc(t_parser *data);
+
+// parse_map.c functions
+int	parse_map(void);
+
+// errors_utils.c
+void	print_wrong_rgb_format(e_line line_type);
+void	print_emtpy_tex_error(e_line line_type);
+void	print_emtpy_fc_error(e_line line_type);
 
 // loaders.c funcions
 int		load_t_parser(t_parser *data, char *file_name);
