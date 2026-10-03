@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/09/29 00:28:36 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/03 11:52:46 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	load_scene(t_parser *data)
 {
 	while (data->line)
 	{
-		printf("checking: %s", data->line);
 		read_scene_line(data);
 		if (data->line_type == ERROR)
 			return (clean_t_parser(data), 0);

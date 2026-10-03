@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/28 23:51:39 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/03 12:29:52 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@
 # define A 97
 # define S 115
 # define D 100
+
+# define ERR "Error\n"
+# define MAP_N_LAST "Scene file: all elements must be defined before map\n"
 
 # define PI 3.14159265359
 
@@ -97,6 +100,7 @@ typedef struct	s_parser
 	char		*line;
 	int			fd;
 	e_line		line_type;
+	int			parsed_elements;
 	t_game		*game;
 }				t_parser;
 

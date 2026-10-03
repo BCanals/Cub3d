@@ -1,4 +1,5 @@
 [ ] - cleaner de game: destuir els punters de mlx: mlx, img, win i data
-[ ] - 
-[ ] - 
-[ ] - 
+[ ] - unafunció que imprimeixi el usage d'exemple de la scene file pot ser majo
+[ ] - parseig de textures
+[ ] - parseig de flor/ceiling
+[ ] - parseig de mapa amb flood fill :)
