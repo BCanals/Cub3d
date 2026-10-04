@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 16:38:53 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 18:07:36 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <math.h>
 # include <errno.h>
 # include <stdbool.h>
+# include <string.h>
+# include <stddef.h>
 
 # define WIDTH 1280
 # define HEIGHT 720
@@ -33,6 +35,16 @@
 # define A 97
 # define S 115
 # define D 100
+
+# define ERR "Error\n"
+# define MALL_ERR "Malloc error\n"
+# define MAP_N_LAST "Scene file: all elements must be defined before map\n"
+# define MAP_EMPTY_LINE "Map must be at file's end and have no empty lines\n"
+# define MAP_CHARS_LIST " 01NSEW\n"
+# define MAP_INV_CHAR "Map contains invalid chars. Valid chars are: "
+# define TEX_EMPTY "No path provided\n"
+# define RGB_EMPTY "No color params provided\n"
+# define RGB_FORM_ERR "Wrong format. Expected R,G,B colors in range [0,255]\n"
 
 # define PI 3.14159265359
 # define PI_2 1.5707963267
@@ -60,7 +72,7 @@ typedef struct	s_color
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
-}		t_color;
+}				t_color;
 
 typedef struct	s_map
 {
@@ -74,6 +86,18 @@ typedef struct	s_map
 	t_color	floor;
 	t_color	sky;
 }				t_map;
+
+typedef enum	enum_line
+{
+	TEX_N,
+	TEX_S,
+	TEX_E,
+	TEX_O,
+	FLOOR,
+	SKY,
+	MAP,
+	ERROR
+}				e_line;
 
 typedef	struct	s_game
 {
@@ -90,6 +114,49 @@ typedef	struct	s_game
 
 }				t_game;
 
+typedef struct	s_parser
+{
+	char		*buffer;
+	char		*line;
+	char		*scene_file;
+	int			fd;
+	e_line		line_type;
+	int			parsed_elements;
+	t_game		*game;
+}				t_parser;
+
+// get_next_line.c functions
+char	*get_next_line(int fd, char **buffer);
+
+// parser.c functions
+int		parser(int argc, char **argv);
+
+// parser_utils.c functions
+int		parse_wall(t_parser *data);
+int		parse_fc(t_parser *data);
+
+// parse_map.c functions
+int		parse_map(t_parser *data);
+
+// flood_fill.c functions
+int		flood_fill_check(t_parser *data);
+
+// errors_utils.c
+void	print_wrong_rgb_format(e_line line_type);
+void	print_emtpy_tex_error(e_line line_type);
+void	print_emtpy_fc_error(e_line line_type);
+
+// loaders.c funcions
+int		load_t_parser(t_parser *data, char *file_name);
+
+// cleaners.c funcions
+void	clean_t_map(t_map *map);
+void	clean_t_game(t_game *game);
+void	clean_t_parser(t_parser *data);
+
+// scene_read.c funcions
+void	read_scene_line(t_parser *data);
+e_line	get_line_type(char *str);
 
 void	init_structs(t_game *game);
 

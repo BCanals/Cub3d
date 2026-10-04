@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/03 22:12:37 by bizcru            #+#    #+#             */
+/*   Updated: 2026/10/04 17:43:21 by becanals         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../inc/cub.h"
+
+void	print_emtpy_fc_error(e_line line_type)
+{
+	char	*msg;
+
+	if (line_type == FLOOR)
+		msg = "Floor texture: ";
+	else
+		msg = "Ceiling/sky texture: ";
+	printf("%s%s%s", ERR, msg, RGB_EMPTY);
+}
+
+void	print_wrong_rgb_format(e_line line_type)
+{
+	char	*msg;
+
+	if (line_type == FLOOR)
+		msg = "Floor texture: ";
+	else
+		msg = "Ceiling/sky texture: ";
+	printf("%s%s%s", ERR, msg, RGB_FORM_ERR);
+}
+
+void	print_emtpy_tex_error(e_line line_type)
+{
+	char	*(msgs[4]);
+
+	msgs[0] = "NOrth texture: ";
+	msgs[1] = "SOuth texture: ";
+	msgs[2] = "EAst texture: ";
+	msgs[3] = "WEst texture: ";
+	printf("%s%s%s", ERR, msgs[line_type], TEX_EMPTY);
+}

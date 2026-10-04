@@ -6,12 +6,13 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:13:14 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/07/04 16:18:42 by bcanals-         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:23:44 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
