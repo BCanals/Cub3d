@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/18 19:43:43 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 13:18:52 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB_H
 
 # include "../lib/libft/libft.h"
-# include "../lib/minilibx-linux/mlx.h"
+# include "../lib/MLX42/include/MLX42/MLX42.h"
 
 # include <stdio.h>
 # include <unistd.h>
