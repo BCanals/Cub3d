@@ -6,57 +6,58 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/09/18 17:42:22 by lartes-s         ###   ########.fr        #
+#    Updated: 2026/10/04 13:25:19 by lartes-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = cub3d
-SRC         = src/render/game.c
+NAME	=	cub3d
+SRC		=	src/main.c \
+			
 
-LIBFT_DIR   = ./lib/libft
-LIBFT       = $(LIBFT_DIR)/libft.a
+LIBFT_DIR = ./lib/libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-LIBMLX_DIR  = ./lib/minilibx-linux
-LIBMLX      = $(LIBMLX_DIR)/libmlx.a
+LIBMLX	:= ./lib/MLX42
 
-OBJ_DIR     = obj
-OBJ         = $(SRC:%.c=$(OBJ_DIR)/%.o)
-DEP         = $(SRC:%.c=$(OBJ_DIR)/%.d)
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+DEP = $(SRC:%.c=$(OBJ_DIR)/%.d)
 
-CC          = cc
-CCFLAGS     = -Wall -Wextra -Werror -g -O3 #-fsanitize=address
+CC = cc
+CCFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 -fsanitize=address
 
-INCLUDES    = -Iinc -I$(LIBFT_DIR) -I$(LIBMLX_DIR)
-LIBS        = -L$(LIBMLX_DIR) -lmlx -L/usr/lib/X11 -lXext -lX11 -lm -lz
+INCLUDES = -I$(LIBFT_DIR) -I$(LIBMLX)/include
+LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+
 
 all: libft libmlx $(NAME)
 
 -include $(DEP)
 
-$(NAME): $(OBJ) $(LIBFT) $(LIBMLX)
+$(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CCFLAGS) $(OBJ) $(LIBFT) $(LIBS) -o $(NAME)
-
+	
 libft:
-	@$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 libmlx:
-	@$(MAKE) -C $(LIBMLX_DIR)
+	cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	@mkdir -p $(dir $@)
+$(OBJ_DIR)/%.o: %.c | Makefile $(OBJ_DIR)
+	mkdir -p $(dir $@)
 	$(CC) $(CCFLAGS) -MMD -MP $(INCLUDES) -c $< -o $@
 
 $(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 
 clean:
-	@rm -rf $(OBJ_DIR)
-	@$(MAKE) -C $(LIBFT_DIR) clean
-	@$(MAKE) -C $(LIBMLX_DIR) clean
+	rm -rf $(OBJ_DIR)
+	$(MAKE) -C $(LIBFT_DIR) clean
+	rm -rf $(LIBMLX)/build
 
 fclean: clean
-	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
