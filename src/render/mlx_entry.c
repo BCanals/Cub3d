@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 13:39:37 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 15:39:39 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:46:30 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	load_images(t_game *game)
 	int				i;
 
 	i = -1;
+	texture = NULL;
 	while (++i < 4)
 	{
 		if (ft_strlen(paths[i]) >= 4 && ft_strcmp(paths[i]
@@ -36,8 +37,6 @@ void	load_images(t_game *game)
 	}
 }
 
-
-
 int	run_mlx(t_game *game)
 {
 	game->mlx = mlx_init(WIDTH, HEIGHT, "cub3d", false);
@@ -47,9 +46,8 @@ int	run_mlx(t_game *game)
 	game->img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	if (!game->img || (mlx_image_to_window(game->mlx, game->img, 0, 0) < 0))
 		ft_error_msg("Error creating game image", game);
-	mlx_key_hook(game->mlx, key_hooks, game);
+	mlx_key_hook(game->mlx, (mlx_keyfunc)key_hooks, game);
 	render_scene(game);
 	mlx_loop(game->mlx);
 	return (EXIT_SUCCESS);
 }
-

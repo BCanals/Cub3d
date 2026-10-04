@@ -6,12 +6,20 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/10/04 13:25:19 by lartes-s         ###   ########.fr        #
+#    Updated: 2026/10/04 16:37:18 by lartes-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	cub3d
 SRC		=	src/main.c \
+			src/setup.c \
+			src/render/cleanup.c \
+			src/render/render.c \
+			src/render/render_utils.c \
+			src/render/mlx_entry.c \
+			src/render/key_hooks.c \
+			src/render/operations.c \
+
 			
 
 LIBFT_DIR = ./lib/libft

@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 14:49:46 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 15:37:40 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:54:43 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	free_textures(t_game *game)
 		free(game->map.ea);
 		game->map.ea = NULL;
 	}
-	if (game->map.ea)
+	if (game->map.we)
 	{
 		free(game->map.we);
 		game->map.we = NULL;

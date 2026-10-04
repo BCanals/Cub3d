@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 16:06:32 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 16:38:53 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,22 @@ typedef	struct	s_game
 
 }				t_game;
 
+
+void	init_structs(t_game *game);
+
 int		run_mlx(t_game *game);
 int		close_game(t_game *game);
 void	ft_error_msg(char *str, t_game *game);
 void	key_hooks(mlx_key_data_t keydata, t_game *game);
+void	render_scene(t_game *game);
+float	angle_from_x(int x);
+void	draw_oob(t_game *game, int x);
+void	draw_wall(t_game *game, t_vec2 *ray, int x, char face);
+t_vec2	*normalize_vec(t_vec2 *vec);
+t_vec2	*subt_from_vec(t_vec2 *orig, t_vec2 *other);
+t_vec2	*add_to_vec(t_vec2 *orig, t_vec2 *other);
+void	free_structs(t_game *game);
+float	abs_vec(t_vec2 *vec);
 
 
 #endif

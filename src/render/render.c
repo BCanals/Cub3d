@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:49:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 16:04:53 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:52:16 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ char	get_map_element(t_game *game, t_vec2 *point, float angle)
 char	raycast(t_game *game, t_vec2 *ray, float angle)
 {
 	find_next_edge(ray, angle);
-	while (get_map_element(game, ray, angle) == 'X')
+	while (get_map_element(game, ray, angle) == '0')
 		find_next_edge(ray, angle);
 	return (get_map_element(game, ray, angle));
 }
-
 
 void	render_scene(t_game *game)
 {

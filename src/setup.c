@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 13:38:19 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 13:50:25 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:44:16 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_player(t_player *player)
 {
-	player->pos.x = 4.5f;
-	player->pos.y = 3.5f;
+	player->pos.x = 2.5f;
+	player->pos.y = 2.5f;
 	player->dir = 0.0f;
 }
 
@@ -48,24 +48,34 @@ static char	**create_dummy_map(void)
 	return (map);
 }
 
+void	init_walls(t_game *game)
+{
+	int i = -1;
+	while (++i < 4)
+		game->walls[i] = NULL;
+}
+
 void	init_structs(t_game *game)
 {
-	game->map.no = ft_strdup("./textures/north.xpm");
-	game->map.so = ft_strdup("./textures/south.xpm");
-	game->map.ea = ft_strdup("./textures/east.xpm");
-	game->map.we = ft_strdup("./textures/west.xpm");
+	game->map.no = ft_strdup("./textures/north.png");
+	game->map.so = ft_strdup("./textures/south.png");
+	game->map.ea = ft_strdup("./textures/east.png");
+	game->map.we = ft_strdup("./textures/west.png");
 
 	game->map.map = create_dummy_map();
+	game->map.n_cols = 10;
+	game->map.n_rows = 8;
 
-	game->map.floor.r = 75;
-	game->map.floor.g = 75;
-	game->map.floor.b = 75;
+	game->map.floor.r = 255;
+	game->map.floor.g = 149;
+	game->map.floor.b = 231;
 
-	game->map.sky.r = 135;
-	game->map.sky.g = 206;
-	game->map.sky.b = 235;
+	game->map.sky.r = 162;
+	game->map.sky.g = 197;
+	game->map.sky.b = 255;
 
 	init_player(&game->player);
+	init_walls(game);
 
 	game->mlx = NULL;
 	game->win = NULL;

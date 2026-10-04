@@ -6,39 +6,52 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:39:49 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 15:48:55 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:46:02 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
+static void	apply_movement(t_game *game, float new_x, float new_y)
+{
+	int	map_x;
+	int	map_y;
+
+	map_x = floorf(new_x) - 1;
+	map_y = floorf(new_y) - 1;
+	if (map_y >= 0 && map_y < game->map.n_rows
+		&& map_x >= 0 && map_x < game->map.n_cols)
+	{
+		if (game->map.map[map_y][map_x] != '1')
+		{
+			game->player.pos.x = new_x;
+			game->player.pos.y = new_y;
+		}
+	}
+}
+
 void	ft_mov_key_hook(mlx_key_data_t keydata, t_game *game)
 {
-	float	mov_speed;
+	float	nx;
+	float	ny;
+	float	ang;
 
-	mov_speed = 0.05;
-	if (keydata.key == MLX_KEY_W)
-	{
-		game->player.pos.x += cos(game->player.dir) * mov_speed;
-		game->player.pos.y += sin(game->player.dir) * mov_speed;
-	}
-	else if (keydata.key == MLX_KEY_S)
-	{
-		game->player.pos.x -= cos(game->player.dir) * mov_speed;
-		game->player.pos.y -= sin(game->player.dir) * mov_speed;
-	}
+	nx = game->player.pos.x;
+	ny = game->player.pos.y;
+	ang = game->player.dir;
+	if (keydata.key == MLX_KEY_S)
+		ang += PI;
 	else if (keydata.key == MLX_KEY_A)
-	{
-		game->player.pos.x -= cos(game->player.dir + PI_2) * mov_speed;
-		game->player.pos.y -= sin(game->player.dir + PI_2) * mov_speed;
-	}
+		ang -= PI_2;
 	else if (keydata.key == MLX_KEY_D)
+		ang += PI_2;
+	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S
+		|| keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)
 	{
-		game->player.pos.x += cos(game->player.dir + PI_2) * mov_speed;
-		game->player.pos.y += sin(game->player.dir + PI_2) * mov_speed;
+		nx += cos(ang) * 0.05;
+		ny += sin(ang) * 0.05;
+		apply_movement(game, nx, ny);
 	}
-	printf("Player position: (%f, %f)\n", game->player.pos.x,
-		game->player.pos.y);
 }
 
 void	ft_rot_key_hook(mlx_key_data_t keydata, t_game *game)

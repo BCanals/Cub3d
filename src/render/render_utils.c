@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:05:24 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 16:16:08 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:52:31 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 uint32_t	get_colour(t_color c)
 {
-	uint32_t colour;
-	colour = (255<<24) + ((c.r)<<16) + ((c.g<<8)) + c.b;
+	uint32_t	colour;
+
+	colour = (255 << 24) + ((c.r) << 16) + ((c.g << 8)) + c.b;
 	return (colour);
 }
-
 
 uint32_t	get_wall_pixel(t_game *game, t_vec2 *impact, char orientation)
 {
@@ -85,11 +85,7 @@ void	draw_oob(t_game *game, int x)
 float	angle_from_x(int x)
 {
 	float	normal_x;
-	float	plane_size;
-	int		plane_dist;
 
-	plane_dist = 3;
-	normal_x = ((float)x * 2) / WIDTH - 0.5;
-	plane_size = plane_dist * tan(PI_2 / 2) * 2;
-	return (atan2f(normal_x, plane_size));
+	normal_x = ((float)x * 2.0f) / WIDTH - 1.0f;
+	return (atan2f(normal_x, 1.0f));
 }
