@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:12:37 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 17:43:21 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/04 19:50:54 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,11 @@ void	print_emtpy_tex_error(e_line line_type)
 	msgs[2] = "EAst texture: ";
 	msgs[3] = "WEst texture: ";
 	printf("%s%s%s", ERR, msgs[line_type], TEX_EMPTY);
+}
+
+void	ft_error_msg(char *str, t_game *game)
+{
+	clean_t_game(game);
+	printf("%s\n", str);
+	exit(-1);
 }

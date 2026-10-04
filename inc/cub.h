@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 18:07:36 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 19:21:13 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ typedef struct	s_parser
 char	*get_next_line(int fd, char **buffer);
 
 // parser.c functions
-int		parser(int argc, char **argv);
+t_game	*parser(int argc, char **argv);
 
 // parser_utils.c functions
 int		parse_wall(t_parser *data);

@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/04 17:58:13 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/04 19:51:41 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	flood_fill(t_parser *data, int x, int y)
 */
 int	flood_fill_check(t_parser *data)
 {
-	printf("flood filling...\n");
 	if (data)
 		return (1);
 	return (0);

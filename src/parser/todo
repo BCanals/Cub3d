@@ -4,6 +4,7 @@
 [ ] - Una comprovació de que no s'està carregant una textura que ja estava carregada.
 [ ] - Posar el número de fils i columnes del mapa
 [ ] - Revisió general de que estiguem omplint tots els structs que toquen
+[ ] - Crec que les línies en blanc no s'estan gestionant bé 
 
 PREGUNTES AMB LA LAIA:
 [ ] - Mirar si té sentit tenir fds de les textures de les parets en lloc de les strings del nom de l'arxiu

@@ -6,27 +6,26 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/10/04 18:23:57 by lartes-s         ###   ########.fr        #
+#    Updated: 2026/10/04 19:51:20 by becanals         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	cub3d
 SRC		=	src/main.c \
-			src/setup.c \
-			src/parser/loaders.c \
-			src/parser/cleaners.c \
+			src/parser/parser.c \
 			src/parser/scene_read.c \
-			src/parser/errors_utils.c \
 			src/parser/parser_utils.c \
 			src/parser/get_next_line.c \
 			src/parser/parse_map.c \
 			src/parser/flood_fill.c \
-			src/render/cleanup.c \
 			src/render/render.c \
 			src/render/render_utils.c \
 			src/render/mlx_entry.c \
 			src/render/key_hooks.c \
-			src/render/operations.c 
+			src/render/operations.c \
+			src/setup_clean/errors_utils.c \
+			src/setup_clean/loaders.c \
+			src/setup_clean/cleaners.c 
 
 LIBFT_DIR = ./lib/libft
 LIBFT = $(LIBFT_DIR)/libft.a

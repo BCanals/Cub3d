@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 17:55:00 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/04 19:52:09 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	count_map_lines(t_parser *data)
 	Return 1 on success or 0 on error.
 */
 
-int	parse_map(t_parser *data)
+int	load_map(t_parser *data)
 {
 	int		lines;
 	int		i;
@@ -92,11 +92,32 @@ int	parse_map(t_parser *data)
 	{
 		nl_pos = ft_strchr(data->line, '\n');
 		if (nl_pos)
-			*nl_pos = '0';
+			*nl_pos = 0;
 		data->game->map.map[i++] = data->line;
 		data->line = get_next_line(data->fd, &data->buffer);
 	}
 	if (!flood_fill_check(data))
 		return (0);
+	return (1);
+}
+
+int parse_map(t_parser *data)
+{
+	unsigned int	i;
+	unsigned int	max;
+
+	if (!load_map(data))
+		return (0);
+	i = -1;
+	max = 0;
+	while (data->game->map.map[++i])
+		if (ft_strlen(data->game->map.map[i]) > max)
+			max = ft_strlen(data->game->map.map[i]);
+	data->game->map.n_cols = max;
+	data->game->map.n_rows = ++i;
+	// TEMPORAL
+	data->game->player.pos.x = 2.5f;
+	data->game->player.pos.y = 2.5f;
+	data->game->player.dir = 0.0f;
 	return (1);
 }

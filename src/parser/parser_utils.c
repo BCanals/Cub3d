@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:09:21 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 18:13:45 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/04 19:43:17 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,27 @@ int	parse_fc(t_parser *data)
 	return (1);
 }
 
+static void wall_point_to_start(char **tmp)
+{
+	while (**tmp && **tmp == ' ')
+		(*tmp)++;
+	*tmp += 3;
+	while (**tmp && **tmp == ' ')
+		(*tmp)++;
+}
+
 int	parse_wall(t_parser *data)
 {
+	char	*endl;
 	char	*tmp;
 
 	tmp = data->line;
-	while (*tmp && *tmp == ' ')
-		tmp++;
-	tmp += 3;
-	while (*tmp && *tmp == ' ')
-		tmp++;
+	wall_point_to_start(&tmp);
 	if (!*tmp || *tmp == '\n')
 		return (print_emtpy_tex_error(data->line_type), 0);
+	endl = ft_strchr(tmp, '\n');
+	if (endl)
+		*endl = 0;
 	tmp = ft_strdup(tmp);
 	if (!tmp)
 		return (printf("%s%s", ERR, MALL_ERR), 0);
