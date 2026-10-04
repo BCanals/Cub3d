@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:09:21 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 17:44:13 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/04 18:13:45 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ int	parse_wall(t_parser *data)
 	if (!tmp)
 		return (printf("%s%s", ERR, MALL_ERR), 0);
 	if (data->line_type == TEX_N)
-		data->game->map.tex_n = tmp;
+		data->game->map.no = tmp;
 	if (data->line_type == TEX_S)
-		data->game->map.tex_s = tmp;
+		data->game->map.so = tmp;
 	if (data->line_type == TEX_E)
-		data->game->map.tex_e = tmp;
+		data->game->map.ea = tmp;
 	if (data->line_type == TEX_O)
-		data->game->map.tex_o = tmp;
+		data->game->map.we = tmp;
 	return (1);
 }

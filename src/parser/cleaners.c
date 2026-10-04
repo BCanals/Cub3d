@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleaners.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:17:49 by bizcru            #+#    #+#             */
-/*   Updated: 2026/09/28 01:37:12 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/04 18:21:26 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	clean_t_map(t_map *map)
 {
 	//free((*map)->floor);
 	//free((*map)->sky);
-	free(map->tex_n);
-	free(map->tex_s);
-	free(map->tex_e);
-	free(map->tex_o);
+	free(map->no);
+	free(map->so);
+	free(map->ea);
+	free(map->we);
 	if (map->map)
 		ft_free_array(map->map);
 	map->map = NULL;
