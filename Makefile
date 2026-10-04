@@ -6,7 +6,7 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/10/03 22:24:20 by bizcru           ###   ########.fr        #
+#    Updated: 2026/10/04 16:20:41 by becanals         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME        = cub3d
 SRC_DIR		= src
 SRC_NAMES   = render/game.c parser/parser.c parser/get_next_line.c \
 			  parser/loaders.c parser/cleaners.c parser/scene_read.c \
-			  parser/errors_utils.c parser/parser_utils.c parser/parse_map.c
+			  parser/errors_utils.c parser/parser_utils.c parser/parse_map.c \
+			  parser/flood_fill.c
 SRC			= $(addprefix $(SRC_DIR)/, $(SRC_NAMES))
 
 

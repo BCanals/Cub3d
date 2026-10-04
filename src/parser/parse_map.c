@@ -6,42 +6,106 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 11:55:35 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/04 17:42:27 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-// Tenim una array (directament a l'struct final que es llegirà
-
-/* static int load_map
-S'encarregarà de traspassar les línies de l'arxiu directament a l'struct final.
--Com ho fem per reservar suficient memòria?
-Sabem que el mapa queda al final de l'arxiu, així que podem mirar si es pot copiar l'estat
-de read, en plan com "guardar" des d'on estic llegint l'arxiu i passar-li un gnl sense perdre la referència.
-Així puc comptar quantes línies em queden.
-Pot haver-hi un error que siguin línies blanques a mig mapa, hauria de donar error.
-Clarament hi haurà una funció count lines hahah que revisi això de les línies en blanc i digui quantes línies caldran.
-Recordatori que una línia ja estarà carregada a l'struct de parseig.
-
-Important fer-ho amb calloc i deixar una línia en blanc perquè el clean_array hi compta.
-*/
-
-
-/*
-   static int check_map_chrs: funció fàcil que revisa si hi ha caràcters no permesos.
- */
-
-// Funció/ns de la flood fill.
-
-int	parse_map(void)
+static int	set_fd_to_map(t_parser *data, int *fd, char **line, char **buffer)
 {
-	printf("parsing map...\n");
-
-	// load_map carrega el mapa null-terminadament
-	// check_map_chrs comprova que tots els caracters siguin correctes
-	// do the flood fill
-	// done.
+	*fd = open(data->scene_file, O_RDONLY);
+	if (*fd == -1)
+		return (printf("Error on open: %s\n", strerror(errno)), 0);
+	*buffer = NULL;
+	*line = get_next_line(*fd, buffer);
+	while (*line)
+	{
+		if (get_line_type(*line) == MAP)
+			break ;
+		free(*line);
+		*line = get_next_line(*fd, buffer);
+	}
 	return (1);
 }
 
+static int	check_map_line(char *line)
+{
+	if (*line == '\n')
+		return (printf("%s%s", ERR, MAP_EMPTY_LINE), 0);
+	while (*line && *line == ' ')
+		line++;
+	if (*line == '\n')
+		return (printf("%s%s", ERR, MAP_EMPTY_LINE), 0);
+	while (*line)
+	{
+		if (!ft_strchr(MAP_CHARS_LIST, *line))
+			return (printf("%s%s%s", ERR, MAP_INV_CHAR, MAP_CHARS_LIST), 0);
+		line++;
+	}
+	return (1);
+}
+
+static int	count_map_lines(t_parser *data)
+{
+	int		fd;
+	char	*line;
+	char	*buffer;
+	int		count;
+
+	if (!set_fd_to_map(data, &fd, &line, &buffer))
+		return (0);
+	count = 0;
+	while (line)
+	{
+		count++;
+		if (!check_map_line(line))
+			return (free(line), free(buffer), close(fd), -1);
+		free(line);
+		line = get_next_line(fd, &buffer);
+	}
+	free(buffer);
+	close(fd);
+	return (count);
+}
+
+/*
+	puts a copy of the map from the scene file in the relevant struct,
+	provided it passes the checks (above functions).
+	Return 1 on success or 0 on error.
+*/
+
+static int	load_map(t_parser *data)
+{
+	int		lines;
+	int		i;
+	char	*nl_pos;
+
+	lines = count_map_lines(data);
+	if (lines == -1)
+		return (0);
+	data->game->map.map = ft_calloc(sizeof(char *), lines + 1);
+	if (!data->game->map.map)
+		return (printf("%s%s", ERR, MALL_ERR), 0);
+	i = 0;
+	while (data->line)
+	{
+		nl_pos = ft_strchr(data->line, '\n');
+		if (nl_pos)
+			*nl_pos = '0';
+		data->game->map.map[i++] = data->line;
+		data->line = get_next_line(data->fd, &data->buffer);
+	}
+	return (1);
+}
+
+// Funció/ns de la flood fill.
+
+int	parse_map(t_parser *data)
+{
+	if (!load_map(data))
+		return (0);
+	if (!flood_fill_check(data))
+		return (0);
+	return (1);
+}

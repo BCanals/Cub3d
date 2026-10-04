@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 16:13:14 by bcanals-          #+#    #+#             */
-/*   Updated: 2026/10/04 17:23:44 by becanals         ###   ########.fr       */
+/*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
+/*   Updated: 2026/10/04 16:25:33 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-#include <stdio.h>
+#include "../../inc/cub.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	flood_fill_check(t_parser *data)
 {
-	void	*rtrn;
-
-	rtrn = malloc(nmemb * size);
-	if (rtrn == NULL)
-		return (NULL);
-	ft_bzero(rtrn, nmemb * size);
-	return (rtrn);
+	printf("flood filling...\n");
+	if (data)
+		return (1);
+	return (0);
 }

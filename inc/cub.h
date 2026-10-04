@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/03 22:23:53 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/04 16:30:42 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@
 # define ERR "Error\n"
 # define MALL_ERR "Malloc error\n"
 # define MAP_N_LAST "Scene file: all elements must be defined before map\n"
+# define MAP_EMPTY_LINE "Map must be at file's end and have no empty lines\n"
+# define MAP_CHARS_LIST " 01NSEW\n"
+# define MAP_INV_CHAR "Map contains invalid chars. Valid chars are: "
 # define TEX_EMPTY "No path provided\n"
 # define RGB_EMPTY "No color params provided\n"
 # define RGB_FORM_ERR "Wrong format. Expected R,G,B colors in range [0,255]\n"
@@ -102,6 +105,7 @@ typedef struct	s_parser
 {
 	char		*buffer;
 	char		*line;
+	char		*scene_file;
 	int			fd;
 	e_line		line_type;
 	int			parsed_elements;
@@ -119,7 +123,10 @@ int		parse_wall(t_parser *data);
 int		parse_fc(t_parser *data);
 
 // parse_map.c functions
-int	parse_map(void);
+int		parse_map(t_parser *data);
+
+// flood_fill.c functions
+int		flood_fill_check(t_parser *data);
 
 // errors_utils.c
 void	print_wrong_rgb_format(e_line line_type);
@@ -136,5 +143,6 @@ void	clean_t_parser(t_parser *data);
 
 // scene_read.c funcions
 void	read_scene_line(t_parser *data);
+e_line	get_line_type(char *str);
 
 #endif

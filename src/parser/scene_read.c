@@ -6,13 +6,13 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:46:12 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/03 22:25:48 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/04 16:34:55 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-static e_line	get_line_type(char *str)
+e_line	get_line_type(char *str)
 {
 	while (*str && *str == ' ')
 		str++;
@@ -37,7 +37,6 @@ static e_line	get_line_type(char *str)
 
 static int	parse_line(t_parser *data)
 {
-	printf("parsed = %i\n", data->parsed_elements);
 	if (data->line_type == MAP)
 	{
 		if (data->parsed_elements < 6)
@@ -45,7 +44,7 @@ static int	parse_line(t_parser *data)
 			printf("%s%s", ERR, MAP_N_LAST);
 			return (0);
 		}
-		if (!parse_map())
+		if (!parse_map(data))
 			return (0);
 	}
 	else if (data->line_type == FLOOR || data->line_type == SKY)

@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:12:37 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/03 22:16:17 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/04 17:43:21 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	print_wrong_rgb_format(e_line line_type)
 	printf("%s%s%s", ERR, msg, RGB_FORM_ERR);
 }
 
-
 void	print_emtpy_tex_error(e_line line_type)
 {
 	char	*(msgs[4]);
@@ -45,4 +44,3 @@ void	print_emtpy_tex_error(e_line line_type)
 	msgs[3] = "WEst texture: ";
 	printf("%s%s%s", ERR, msgs[line_type], TEX_EMPTY);
 }
-

@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/03 11:52:46 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/04 17:43:51 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static int	check_file_ext(char *file_name)
 		return (0);
 	return (1);
 }
-
 
 static int	load_scene(t_parser *data)
 {
