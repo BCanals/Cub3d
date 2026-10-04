@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 18:11:34 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/25 18:15:50 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/02 17:22:22 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 static void	move_player(t_game *game, float angle_offset)
 {
 	float	move_angle;
-	float	new_x;
-	float	new_y;
+	t_vec2	new;
 
 	move_angle = game->player.dir + angle_offset;
-	new_x = game->player.pos_x + cosf(move_angle) * MOVE_SPEED;
-	new_y = game->player.pos_y + sinf(move_angle) * MOVE_SPEED;
-	if (game->map.map[(int)game->player.pos_y][(int)new_x] != '1')
-		game->player.pos_x = new_x;
-	if (game->map.map[(int)new_y][(int)game->player.pos_x] != '1')
-		game->player.pos_y = new_y;
+	new.x = game->player.pos.x + cosf(move_angle) * MOVE_SPEED;
+	new.y = game->player.pos.y + sinf(move_angle) * MOVE_SPEED;
+	if (game->map.map[(int)game->player.pos.y][(int)new.x] != '1')
+		game->player.pos.x = new.x;
+	if (game->map.map[(int)new.y][(int)game->player.pos.x] != '1')
+		game->player.pos.y = new.y;
 }
 
 int	ft_key_hook(int keycode, t_game *game)

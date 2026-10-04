@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/25 19:54:53 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/02 20:02:26 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 # define MOVE_SPEED 0.1f
 # define ROT_SPEED 0.05f
 
+
+# define FOV M_PI_2
 # define PI 3.14159265359
 
 typedef struct s_vec2
@@ -68,8 +70,7 @@ typedef struct s_draw
 
 typedef struct s_player
 {
-	float	pos_x;
-	float	pos_y;
+	t_vec2	pos;
 	float	dir;
 }				t_player;
 
@@ -82,13 +83,12 @@ typedef struct	s_color
 
 typedef struct	s_map
 {
-	char	*tex_n;
-	char	*tex_s;
-	char	*tex_e;
-	char	*tex_o;
-	int		n_cols;
-	int		n_rows;
-	char	**map; 
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	//int		n_cols;
+	//int		n_rows;
 	t_color	floor;
 	t_color	sky;
 }				t_map;
@@ -113,9 +113,12 @@ typedef	struct	s_game
 	void		*img;
 	void		*win;
 	char		*data;
-	int			bpp;
-	int			size_line;
-	int			endian;
+	char		**map;
+	int			map_height;
+	int			*row_len;
+	//int			bpp;
+	//int			size_line;
+	//int			endian;
 
 }				t_game;
 

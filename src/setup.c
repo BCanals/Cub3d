@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:45:00 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/09/25 18:43:33 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/02 17:26:51 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	init_player(t_player *player)
 {
-	player->pos_x = 4.5f;
-	player->pos_y = 3.5f;
-	player->dir = 0.0f; // 0 radians (mirant cap a l'est / dreta)
+	player->pos.x = 4.5f;
+	player->pos.y = 3.5f;
+	player->dir = 0.0f;
 }
 
 static char	**create_dummy_map(void)
