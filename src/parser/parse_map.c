@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 17:42:27 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/04 17:55:00 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	count_map_lines(t_parser *data)
 	Return 1 on success or 0 on error.
 */
 
-static int	load_map(t_parser *data)
+int	parse_map(t_parser *data)
 {
 	int		lines;
 	int		i;
@@ -96,15 +96,6 @@ static int	load_map(t_parser *data)
 		data->game->map.map[i++] = data->line;
 		data->line = get_next_line(data->fd, &data->buffer);
 	}
-	return (1);
-}
-
-// Funció/ns de la flood fill.
-
-int	parse_map(t_parser *data)
-{
-	if (!load_map(data))
-		return (0);
 	if (!flood_fill_check(data))
 		return (0);
 	return (1);
