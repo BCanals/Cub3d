@@ -1,13 +1,13 @@
-[ ] - cleaner de game: destuir els punters de mlx: mlx, img, win i data
-[ ] - unafunció que imprimeixi el usage d'exemple de la scene file pot ser majo
+[ ] - una funció que imprimeixi el usage d'exemple de la scene file pot ser majo
 [ ] - flood fill :)
 [ ] - Una comprovació de que no s'està carregant una textura que ja estava carregada.
-[ ] - Posar el número de fils i columnes del mapa
 [ ] - Revisió general de que estiguem omplint tots els structs que toquen
-[ ] - Crec que les línies en blanc no s'estan gestionant bé 
+[ ] - Crec que les línies en blanc no s'estan gestionant bé
+[ ] - Posició inicial del jugador
+
 
 PREGUNTES AMB LA LAIA:
-[ ] - Mirar si té sentit tenir fds de les textures de les parets en lloc de les strings del nom de l'arxiu
+[x] - Mirar si té sentit tenir fds de les textures de les parets en lloc de les strings del nom de l'arxiu
 
 
 CASOS LIMIT PER TESTEJAR

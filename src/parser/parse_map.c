@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 19:52:09 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/08 20:55:53 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,7 @@ int parse_map(t_parser *data)
 			max = ft_strlen(data->game->map.map[i]);
 	data->game->map.n_cols = max;
 	data->game->map.n_rows = ++i;
-	// TEMPORAL
-	data->game->player.pos.x = 2.5f;
-	data->game->player.pos.y = 2.5f;
-	data->game->player.dir = 0.0f;
+	if (!set_player(data))
+		return (0);
 	return (1);
 }

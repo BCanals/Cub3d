@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 19:21:13 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/08 20:56:46 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@
 # define MAP_EMPTY_LINE "Map must be at file's end and have no empty lines\n"
 # define MAP_CHARS_LIST " 01NSEW\n"
 # define MAP_INV_CHAR "Map contains invalid chars. Valid chars are: "
+# define MAP_OPEN "Map is not enclosed\n"
+# define MAP_NO_PLAYER "No player starting position found in map\n"
 # define TEX_EMPTY "No path provided\n"
 # define RGB_EMPTY "No color params provided\n"
 # define RGB_FORM_ERR "Wrong format. Expected R,G,B colors in range [0,255]\n"
@@ -137,6 +139,9 @@ int		parse_fc(t_parser *data);
 
 // parse_map.c functions
 int		parse_map(t_parser *data);
+
+// parser_map_utils.c
+int		set_player(t_parser *data);
 
 // flood_fill.c functions
 int		flood_fill_check(t_parser *data);

@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:17:49 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 19:50:47 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/08 19:54:06 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	clean_t_game(t_game *game)
 		mlx_terminate(game->mlx);
 		game->mlx = NULL;
 	}
-	//FALTA DESTRUIR LES COSES DE MLX: mlx, img, win, data!
 	free(game);
 }
 
