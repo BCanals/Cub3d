@@ -6,7 +6,7 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:42:25 by bcanals-          #+#    #+#             */
-/*   Updated: 2025/12/04 20:35:47 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:55:35 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_free_array(char **s)
 {
 	unsigned int	i;
 
+	if (!s)
+		return ;
 	i = 0;
 	while (s[i])
 	{

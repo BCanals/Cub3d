@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:17:49 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/08 19:54:06 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:54:46 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	clean_t_parser(t_parser *data)
 		close(data->fd);
 	free(data->buffer);
 	free(data->line);
+	ft_free_array(data->copy);
 	if (data->game)
 	{
 		clean_t_game(data->game);

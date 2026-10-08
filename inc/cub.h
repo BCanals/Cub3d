@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/08 20:56:46 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 00:18:22 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ typedef struct	s_parser
 	int			fd;
 	e_line		line_type;
 	int			parsed_elements;
+	char		**copy;
 	t_game		*game;
 }				t_parser;
 
@@ -145,6 +146,7 @@ int		set_player(t_parser *data);
 
 // flood_fill.c functions
 int		flood_fill_check(t_parser *data);
+t_vec2	find_in_array(char **map, char c);
 
 // errors_utils.c
 void	print_wrong_rgb_format(e_line line_type);

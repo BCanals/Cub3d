@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:12:43 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 19:01:10 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:56:23 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	load_t_parser(t_parser *data, char *file_name)
 	data->scene_file = file_name;
 	data->game = NULL;
 	data->parsed_elements = 0;
+	data->copy = NULL;
 	data->game = load_t_game();
 	if (!data->game)
 		return (clean_t_parser(data), 0);
