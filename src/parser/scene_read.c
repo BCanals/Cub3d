@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:46:12 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 16:34:55 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 20:10:29 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	parse_line(t_parser *data)
 {
 	if (data->line_type == MAP)
 	{
-		if (data->parsed_elements < 6)
+		if (ft_strlen(data->parsed_elements) < 6)
 		{
 			printf("%s%s", ERR, MAP_N_LAST);
 			return (0);
@@ -57,7 +57,7 @@ static int	parse_line(t_parser *data)
 		if (!parse_wall(data))
 			return (0);
 	}
-	data->parsed_elements++;
+	data->parsed_elements[data->line_type] = 'x';
 	return (1);
 }
 

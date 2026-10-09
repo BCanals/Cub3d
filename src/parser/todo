@@ -6,7 +6,7 @@
 
 PREGUNTES AMB LA LAIA:
 [x] - Mirar si té sentit tenir fds de les textures de les parets en lloc de les strings del nom de l'arxiu
-
+[ ] - Ara mateix es pot carregar una textura dues vegades i no fa saltar error (mentre estigui tota la resta definit. Ens sembla bé o volem que no es pugui repetir una instrucció? Al Subject no he trobat especificació
 
 CASOS LIMIT PER TESTEJAR
 [ ] - que passa si hi ha més d'un arxiu en les texture files a l'arxiu de scene

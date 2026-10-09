@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/09 00:18:22 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 20:05:04 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ typedef struct	s_parser
 	char		*scene_file;
 	int			fd;
 	e_line		line_type;
-	int			parsed_elements;
+	char		*parsed_elements;
 	char		**copy;
 	t_game		*game;
 }				t_parser;
