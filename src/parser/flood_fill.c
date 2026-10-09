@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/09 00:33:23 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 20:58:03 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 // coordinates references: (0,0) is top left, only positive values.
 
-static char **copy_array(char **array)
+static char	**copy_array(char **array)
 {
 	char	**copy;
 	int		i;
-	
+
 	i = -1;
 	while (array[++i])
 		;
@@ -80,7 +80,7 @@ int	flood_fill_check(t_parser *data)
 		}
 		pos_ini = find_in_array(data->copy, '0');
 	}
-	if (pos_ini.x >=0)
+	if (pos_ini.x >= 0)
 		return (0);
 	return (1);
 }

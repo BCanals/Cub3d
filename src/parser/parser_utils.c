@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:09:21 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 19:43:17 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 20:58:31 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	parse_fc(t_parser *data)
 	return (1);
 }
 
-static void wall_point_to_start(char **tmp)
+static void	wall_point_to_start(char **tmp)
 {
 	while (**tmp && **tmp == ' ')
 		(*tmp)++;

@@ -6,13 +6,13 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:12:37 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/04 19:50:54 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 21:06:21 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-void	print_emtpy_fc_error(e_line line_type)
+void	print_emtpy_fc_error(t_line line_type)
 {
 	char	*msg;
 
@@ -23,7 +23,7 @@ void	print_emtpy_fc_error(e_line line_type)
 	printf("%s%s%s", ERR, msg, RGB_EMPTY);
 }
 
-void	print_wrong_rgb_format(e_line line_type)
+void	print_wrong_rgb_format(t_line line_type)
 {
 	char	*msg;
 
@@ -34,7 +34,7 @@ void	print_wrong_rgb_format(e_line line_type)
 	printf("%s%s%s", ERR, msg, RGB_FORM_ERR);
 }
 
-void	print_emtpy_tex_error(e_line line_type)
+void	print_emtpy_tex_error(t_line line_type)
 {
 	char	*(msgs[4]);
 

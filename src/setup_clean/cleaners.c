@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:17:49 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:04:49 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 20:56:38 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	clean_t_map(t_map *map)
 {
-	//free((*map)->floor);
-	//free((*map)->sky);
 	free(map->no);
 	free(map->so);
 	free(map->ea);
@@ -23,16 +21,12 @@ void	clean_t_map(t_map *map)
 	if (map->map)
 		ft_free_array(map->map);
 	map->map = NULL;
-	//free(*map);
-	// *map = NULL;
 }
 
 void	clean_t_game(t_game *game)
 {
-	int i;
+	int	i;
 
-	//free((*game)->player);
-	//if((*game)->map)
 	clean_t_map(&game->map);
 	i = -1;
 	if (game->mlx)

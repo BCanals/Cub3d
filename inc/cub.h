@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/09 20:47:54 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 21:09:28 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,20 @@ typedef struct s_vec2
 	float	y;
 }				t_vec2;
 
-
 typedef struct s_player
 {
 	t_vec2	pos;
 	float	dir;
 }				t_player;
 
-typedef struct	s_color
+typedef struct s_color
 {
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
 }				t_color;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	*no;
 	char	*so;
@@ -85,12 +84,12 @@ typedef struct	s_map
 	char	*ea;
 	int		n_cols;
 	int		n_rows;
-	char	**map; 
+	char	**map;
 	t_color	floor;
 	t_color	sky;
 }				t_map;
 
-typedef enum	enum_line
+typedef enum enum_line
 {
 	TEX_N,
 	TEX_S,
@@ -101,9 +100,9 @@ typedef enum	enum_line
 	MAP,
 	ERROR,
 	EMPTY
-}				e_line;
+}				t_line;
 
-typedef	struct	s_game
+typedef struct s_game
 {
 	mlx_image_t		*walls[4];
 	t_player		player;
@@ -118,13 +117,13 @@ typedef	struct	s_game
 
 }				t_game;
 
-typedef struct	s_parser
+typedef struct s_parser
 {
 	char		*buffer;
 	char		*line;
 	char		*scene_file;
 	int			fd;
-	e_line		line_type;
+	t_line		line_type;
 	char		*parsed_elements;
 	char		**copy;
 	t_game		*game;
@@ -151,9 +150,9 @@ int		flood_fill_check(t_parser *data);
 t_vec2	find_in_array(char **map, char c);
 
 // errors_utils.c
-void	print_wrong_rgb_format(e_line line_type);
-void	print_emtpy_tex_error(e_line line_type);
-void	print_emtpy_fc_error(e_line line_type);
+void	print_wrong_rgb_format(t_line line_type);
+void	print_emtpy_tex_error(t_line line_type);
+void	print_emtpy_fc_error(t_line line_type);
 
 // loaders.c funcions
 int		load_t_parser(t_parser *data, char *file_name);
@@ -165,7 +164,7 @@ void	clean_t_parser(t_parser *data);
 
 // scene_read.c funcions
 void	read_scene_line(t_parser *data);
-e_line	get_line_type(char *str);
+t_line	get_line_type(char *str);
 
 void	init_structs(t_game *game);
 
@@ -182,6 +181,5 @@ t_vec2	*subt_from_vec(t_vec2 *orig, t_vec2 *other);
 t_vec2	*add_to_vec(t_vec2 *orig, t_vec2 *other);
 void	free_structs(t_game *game);
 float	abs_vec(t_vec2 *vec);
-
 
 #endif

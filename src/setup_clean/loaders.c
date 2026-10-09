@@ -6,58 +6,11 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:12:43 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:10:52 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 20:57:15 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
-
-/* 
-   This file contains the functions for the creations of the neceesary structs.
-   You may wonder wether having one function per struct is overkill. Probably.
-   The only benefit is to directly prin err msg instead of managing it.
-   Plus, easier to add stuff in the future if needed.
-   Again, probably unnecessary but it is how we chose to built it..
- */
-
-/*
-static t_player	*load_t_player()
-{
-	t_player	*player;
-
-	player = ft_calloc(sizeof(t_player), 1);
-	if (!player)
-		printf("Error on malloc: %s\n", strerror(errno));
-	return (player);
-}
-
-static t_color	*load_t_color()
-{
-	t_color	*color;
-
-	color = ft_calloc(sizeof(t_color), 1);
-	if (!color)
-		printf("Error on malloc: %s\n", strerror(errno));
-	return (color);
-}
-
-static t_map	*load_t_map()
-{
-	t_map	*map;
-
-	map = ft_calloc(sizeof(t_map), 1);
-	if (!map)
-	{
-		printf("Error on malloc: %s\n", strerror(errno));
-		return (NULL);
-	}
-	map->floor = load_t_color();
-	map->sky = load_t_color();
-	if (!map->floor || !map->sky)
-		return (clean_t_map(&map), NULL);
-	return (map);
-}
-*/
 
 static t_game	*load_t_game(void)
 {
@@ -69,12 +22,6 @@ static t_game	*load_t_game(void)
 		printf("Error on malloc: %s\n", strerror(errno));
 		return (NULL);
 	}
-	/*game->player = init_t_player();
-	if (!game->player)
-		return (clean_t_game(game), NULL);
-	game->map = init_t_map();
-	if (!game->map)
-		return (clean_t_game(game), NULL);*/
 	return (game);
 }
 

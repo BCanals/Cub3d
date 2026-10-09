@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:39:49 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 19:53:21 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 20:57:28 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	ft_rot_key_hook(mlx_key_data_t keydata, t_game *game)
 		game->player.dir += rot_speed;
 	game->player.dir += PI * 2;
 	game->player.dir = fmod(game->player.dir, PI * 2);
-	//printf("Player direction: %F\n", game->player.dir * 180 / PI);
 }
 
 void	key_hooks(mlx_key_data_t keydata, t_game *game)

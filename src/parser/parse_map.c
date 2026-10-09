@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/08 20:55:53 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 20:58:50 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	load_map(t_parser *data)
 	return (1);
 }
 
-int parse_map(t_parser *data)
+int	parse_map(t_parser *data)
 {
 	unsigned int	i;
 	unsigned int	max;

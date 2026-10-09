@@ -6,13 +6,13 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:46:12 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:48:20 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 21:07:58 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/cub.h"
 
-e_line	get_line_type(char *str)
+t_line	get_line_type(char *str)
 {
 	while (*str && *str == ' ')
 		str++;
