@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 23:46:12 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:10:29 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/09 20:48:20 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ e_line	get_line_type(char *str)
 {
 	while (*str && *str == ' ')
 		str++;
+	if (*str == '\n')
+		return (EMPTY);
 	if (!str)
 		return (ERROR);
 	if (*str == '1' || *str == '0')
@@ -47,6 +49,8 @@ static int	parse_line(t_parser *data)
 		if (!parse_map(data))
 			return (0);
 	}
+	else if (data->parsed_elements[data->line_type] == 'x')
+		return (printf("%s%s%s", ERR, TEX_REP, data->line), 0);
 	else if (data->line_type == FLOOR || data->line_type == SKY)
 	{
 		if (!parse_fc(data))
@@ -64,6 +68,8 @@ static int	parse_line(t_parser *data)
 void	read_scene_line(t_parser *data)
 {
 	data->line_type = get_line_type(data->line);
+	if (data->line_type == EMPTY)
+		return ;
 	if (data->line_type == ERROR)
 	{
 		printf ("Error\nUndefined line type at: %s", data->line);

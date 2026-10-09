@@ -1,9 +1,14 @@
+
 NO ./textures/north.png
 SO ./textures/south.png
 EA ./textures/east.png
-EA ./textures/west.png
+
+WE ./textures/west.png
 F 255,249,231
 C 162,197,255
+
+
+
 1111111111
 1000000001
 1000000001

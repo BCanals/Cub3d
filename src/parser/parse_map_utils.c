@@ -6,7 +6,7 @@
 /*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 20:18:17 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/08 21:34:39 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/09 20:51:16 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,5 @@ int	set_player(t_parser *data)
 	data->game->player.pos.x = pos.x + 0.5f;
 	data->game->player.pos.y = pos.y + 0.5f;
 	data->game->player.dir = 0.0f + PI / 2 * i;
-	printf("player at x: %f y: %f dir: %f", data->game->player.pos.x, data->game->player.pos.y, 
-		data->game->player.dir);
 	return (1);
 }
