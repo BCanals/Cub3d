@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
+/*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/09 20:58:03 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/13 18:59:19 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	flood_fill(t_parser *data, int x, int y)
 
 int	flood_fill_check(t_parser *data)
 {
-	t_vec2	pos_ini;
+	t_vint2	pos_ini;
 
 	data->copy = copy_array(data->game->map.map);
 	if (!data->copy)

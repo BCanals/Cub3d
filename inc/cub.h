@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/09 21:09:28 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/13 19:03:36 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ typedef struct s_vec2
 	float	x;
 	float	y;
 }				t_vec2;
+
+
+typedef struct s_vint2
+{
+	int	x;
+	int	y;
+}				t_vint2;
 
 typedef struct s_player
 {
@@ -147,7 +154,7 @@ int		set_player(t_parser *data);
 
 // flood_fill.c functions
 int		flood_fill_check(t_parser *data);
-t_vec2	find_in_array(char **map, char c);
+t_vint2	find_in_array(char **map, char c);
 
 // errors_utils.c
 void	print_wrong_rgb_format(t_line line_type);
@@ -174,7 +181,6 @@ void	ft_error_msg(char *str, t_game *game);
 void	key_hooks(mlx_key_data_t keydata, t_game *game);
 void	render_scene(t_game *game);
 float	angle_from_x(int x);
-void	draw_oob(t_game *game, int x);
 void	draw_wall(t_game *game, t_vec2 *ray, int x, char face);
 t_vec2	*normalize_vec(t_vec2 *vec);
 t_vec2	*subt_from_vec(t_vec2 *orig, t_vec2 *other);

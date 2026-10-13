@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:05:24 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 17:52:31 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/13 19:03:47 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,6 @@ void	draw_wall(t_game *game, t_vec2 *ray, int x, char face)
 		else
 			mlx_put_pixel(game->img, x, y, get_colour(game->map.floor));
 		impact.y += step;
-	}
-}
-
-void	draw_oob(t_game *game, int x)
-{
-	int	y;
-
-	y = -1;
-	while (++y < HEIGHT)
-	{
-		mlx_put_pixel(game->img, x, y, 0xFF00FFFF);
 	}
 }
 

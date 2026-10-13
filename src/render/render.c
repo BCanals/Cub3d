@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:49:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 17:52:16 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/13 19:03:23 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,6 @@ void	render_scene(t_game *game)
 	{
 		ray = (t_vec2){game->player.pos.x, game->player.pos.y};
 		face = raycast(game, &ray, angle_from_x(x) + game->player.dir);
-		if (face)
-			draw_wall(game, &ray, x, face);
-		else
-			draw_oob(game, x);
+		draw_wall(game, &ray, x, face);
 	}
 }

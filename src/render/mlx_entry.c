@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 13:39:37 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/04 17:46:30 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/13 19:00:30 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	load_images(t_game *game)
 
 int	run_mlx(t_game *game)
 {
+	for (int i = 0; game->map.map[i]; i++)
+		printf("%s\n", game->map.map[i]);
 	game->mlx = mlx_init(WIDTH, HEIGHT, "cub3d", false);
 	if (!game->mlx)
 		ft_error_msg("Error initialising mlx", game);
