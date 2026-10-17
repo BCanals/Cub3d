@@ -19,6 +19,8 @@ t_vint2	find_in_array(char **map, char c)
 	int		j;
 
 	i = -1;
+	pos.x = -1;
+	pos.y = -1;
 	while (map[++i])
 	{
 		j = -1;
@@ -26,14 +28,16 @@ t_vint2	find_in_array(char **map, char c)
 		{
 			if (map[i][j] == c)
 			{
+				if (pos.x != -1)
+					return (printf("%s%s", ERR, MAP_TWO_PLAYERS),
+						pos.x = -1, pos);
 				pos.x = j;
 				pos.y = i;
-				return (pos);
 			}
 		}
 	}
-	pos.x = -1;
-	pos.y = -1;
+	if (pos.x == -1)
+		printf("%s%s", ERR, MAP_NO_PLAYER);
 	return (pos);
 }
 
@@ -52,10 +56,7 @@ int	set_player(t_parser *data)
 			break ;
 	}
 	if (pos.x == -1)
-	{
-		printf("%s%s", ERR, MAP_NO_PLAYER);
 		return (0);
-	}
 	data->game->player.pos.x = pos.x + 0.5f;
 	data->game->player.pos.y = pos.y + 0.5f;
 	data->game->player.dir = 0.0f + PI / 2 * i;

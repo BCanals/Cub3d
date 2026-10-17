@@ -44,6 +44,7 @@
 # define MAP_INV_CHAR "Map contains invalid chars. Valid chars are: "
 # define MAP_OPEN "Map is not enclosed\n"
 # define MAP_NO_PLAYER "No player starting position found in map\n"
+# define MAP_TWO_PLAYERS "No player starting position found in map\n"
 # define TEX_EMPTY "No path provided\n"
 # define TEX_REP "Repeated texture definition on line: "
 # define RGB_EMPTY "No color params provided\n"
