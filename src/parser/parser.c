@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becanals <becanals@student.42barcelon      +#+  +:+       +#+        */
+/*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/09 21:07:23 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/18 17:23:37 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_game	*parser(int argc, char **argv)
 	t_parser	p_data;
 	t_game		*game;
 
-	if (argc < 2)
+	if (argc != 2)
 		return (printf("Usage: %s [map]\n", argv[0]), NULL);
 	if (!check_file_ext(argv[1]))
 		return (printf("The scene file must be in '*.cub' format\n"), NULL);
