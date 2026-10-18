@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:39:49 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/09 20:57:28 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/18 18:28:27 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	ft_mov_key_hook(mlx_key_data_t keydata, t_game *game)
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_S
 		|| keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_D)
 	{
-		nx += cos(ang) * 0.05;
-		ny += sin(ang) * 0.05;
+		nx += cos(ang) * 0.08;
+		ny += sin(ang) * 0.08;
 		apply_movement(game, nx, ny);
 	}
 }
