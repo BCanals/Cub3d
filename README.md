@@ -1,5 +1,3 @@
-# Cub3D
-
 *This project has been created as part of the 42 curriculum by becanals and lartes-s.*
 
 ## Description
@@ -10,6 +8,19 @@ The goal is to create a realistic 3D representation from a 2D map using the rayc
 
 ## Instructions
 
+### Cloning
+
+Please be aware that this repo contains a submodule.
+Be sure to clone with:
+```bash
+git clone --recursive <main-repo-url>
+```
+If you have already cloned, you can use:
+
+```bash
+git submodule update --init --recursive
+```
+
 ### Compilation
 ```bash
 make
@@ -17,12 +28,13 @@ make
 
 This will compile the project and generate the `cub3D` executable.
 
+
 ### Execution
 ```bash
 ./cub3D [path_to_map.cub]
 ```
 
-Replace `[path_to_map.cub]` with the path to a valid `.cub` scene description file.
+Replace `[path_to_map.cub]` with the path to a valid `.cub` scene description file (see map configuration below).
 
 ### Controls
 
@@ -33,9 +45,9 @@ Replace `[path_to_map.cub]` with the path to a valid `.cub` scene description fi
 ### Map Configuration
 
 The `.cub` file must contain:
-- Texture paths for North, South, East, and West walls (NO, SO, EA, WE)
-- Floor and ceiling colors (F, C)
-- A valid map using characters: `0` (empty space), `1` (wall), `N/S/E/W` (player start position and orientation)
+- Texture paths for North, South, East, and West walls (NO, SO, EA, WE). e.g: "NO ./textures/north.png" 
+- Floor and ceiling colors (F, C) in rgb format. e.g: "F 200,10,0". Numbers allowed only in range [0,255]
+- A valid map using characters: `0` (empty space), `1` (wall), `N/S/E/W` (player start position and orientation). Map must be enclosed, meaning that all zeros and the player position must be sorrounded by walls. Space are allowed in the map, allowing for non squared shapes.
 
 ## Resources
 
@@ -43,7 +55,6 @@ The `.cub` file must contain:
 
 - [3D Ray-Casting Game with Cub3D by Dev Abdilah](https://devabdilah.medium.com/3d-ray-casting-game-with-cub3d-7a116376056a) - Comprehensive guide to implementing raycasting for Cub3D
 - [Lode's Computer Graphics Tutorial - Raycasting](https://lodev.org/cgtutor/raycasting.html) - In-depth explanation of raycasting algorithms with code examples
-- 
 
 ### AI Usage
 
@@ -52,5 +63,5 @@ AI assistance was used for:
 - Debugging texture mapping and wall rendering issues
 - Clarifying MLX42/MiniLibX function usage and event handling
 - Optimizing performance calculations for real-time rendering
-- Generating code structure for parsing the `.cub` configuration file
+- Generating code structure for a basic auxiliar parsing the `.cub` configuration file to start the rendering before full parser was complete.
 - Explaining projection formulas and field of view calculations

@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:12:43 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:57:15 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/18 21:53:47 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ int	load_t_parser(t_parser *data, char *file_name)
 	data->parsed_elements = ft_calloc(10, 1);
 	if (!data->parsed_elements)
 		return (printf("%s", MALL_ERR));
+	data->scene_file = file_name;
+	data->game = NULL;
+	data->copy = NULL;
+	data->copy = NULL;
 	data->buffer = NULL;
 	data->line = NULL;
 	data->line = get_next_line(data->fd, &data->buffer);
@@ -41,9 +45,6 @@ int	load_t_parser(t_parser *data, char *file_name)
 		printf("Scene file not readable or empty.\n");
 		return (clean_t_parser(data), 0);
 	}
-	data->scene_file = file_name;
-	data->game = NULL;
-	data->copy = NULL;
 	data->game = load_t_game();
 	if (!data->game)
 		return (clean_t_parser(data), 0);

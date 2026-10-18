@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:17:49 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:56:38 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/18 21:30:01 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 void	clean_t_map(t_map *map)
 {
-	free(map->no);
-	free(map->so);
-	free(map->ea);
-	free(map->we);
+	if (!map)
+		return ;
+	if (map->no)
+		free(map->no);
+	if (map->so)
+		free(map->so);
+	if (map->ea)
+		free(map->ea);
+	if (map->we)
+		free(map->we);
 	if (map->map)
 		ft_free_array(map->map);
 	map->map = NULL;
@@ -47,7 +53,8 @@ void	clean_t_parser(t_parser *data)
 		close(data->fd);
 	free(data->buffer);
 	free(data->line);
-	ft_free_array(data->copy);
+	if (data->copy)
+		ft_free_array(data->copy);
 	free(data->parsed_elements);
 	if (data->game)
 	{

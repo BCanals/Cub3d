@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/13 19:03:36 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/18 20:53:07 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define MAP_INV_CHAR "Map contains invalid chars. Valid chars are: "
 # define MAP_OPEN "Map is not enclosed\n"
 # define MAP_NO_PLAYER "No player starting position found in map\n"
-# define MAP_TWO_PLAYERS "No player starting position found in map\n"
+# define MAP_TWO_PLAYERS "Only one starting position allowed. Found: "
 # define TEX_EMPTY "No path provided\n"
 # define TEX_REP "Repeated texture definition on line: "
 # define RGB_EMPTY "No color params provided\n"
