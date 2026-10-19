@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 20:18:17 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/18 20:55:33 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/19 20:16:52 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	set_player(t_parser *data)
 		return (printf("%s%s", ERR, MAP_NO_PLAYER), 0);
 	if (players > 1)
 		return (printf("%s%s%i\n", ERR, MAP_TWO_PLAYERS, players), 0);
-	data->game->player.pos.x = pos.x + 0.5f;
-	data->game->player.pos.y = pos.y + 0.5f;
+	data->game->player.pos.x = pos.x + 1.5f;
+	data->game->player.pos.y = pos.y + 1.5f;
 	data->game->player.dir = 0.0f + PI / 2 * i;
 	data->game->map.map[pos.y][pos.x] = '0';
 	return (1);
