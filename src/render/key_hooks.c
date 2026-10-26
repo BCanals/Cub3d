@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:39:49 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/19 20:17:13 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:32:54 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@ static void	apply_movement(t_game *game, float new_x, float new_y)
 {
 	int	map_x;
 	int	map_y;
+	int	curr_map_x;
+	int	curr_map_y;
 
 	map_x = floorf(new_x) - 1;
 	map_y = floorf(new_y) - 1;
+	curr_map_x = floorf(game->player.pos.x) - 1;
+	curr_map_y = floorf(game->player.pos.y) - 1;
 	if (map_y >= 0 && map_y < game->map.n_rows
 		&& map_x >= 0 && map_x < game->map.n_cols)
 	{
-		if (game->map.map[map_y][map_x] != '1')
-		{
+		if (game->map.map[curr_map_y][map_x] != '1')
 			game->player.pos.x = new_x;
+		if (game->map.map[map_y][curr_map_x] != '1')
 			game->player.pos.y = new_y;
-		}
 	}
 }
 

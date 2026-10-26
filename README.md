@@ -9,25 +9,15 @@ The goal is to create a realistic 3D representation from a 2D map using the rayc
 ## Instructions
 
 ### Cloning
-
-Please be aware that this repo contains a submodule.
-Be sure to clone with:
 ```bash
-git clone --recursive <main-repo-url>
-```
-If you have already cloned, you can use:
-
-```bash
-git submodule update --init --recursive
+git clone <main-repo-url>
 ```
 
 ### Compilation
 ```bash
 make
 ```
-
 This will compile the project and generate the `cub3D` executable.
-
 
 ### Execution
 ```bash
