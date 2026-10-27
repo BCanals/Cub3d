@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/27 19:35:50 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:14:15 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	parse_map(t_parser *data)
 		if (ft_strlen(data->game->map.map[i]) > max)
 			max = ft_strlen(data->game->map.map[i]);
 	data->game->map.n_cols = max;
-	data->game->map.n_rows = ++i;
+	data->game->map.n_rows = i;
 	if (!set_player(data))
 		return (0);
 	if (!flood_fill_check(data))

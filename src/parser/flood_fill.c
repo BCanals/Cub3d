@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/27 19:44:33 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:55:32 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ static char	**copy_array(char **array)
 
 static int	flood_fill(t_parser *data, int x, int y)
 {
-
-	if (y == data->game->map.n_rows)
+	if (!data->copy[y])
 		return (0);
 	if (ft_strlen(data->copy[y]) <= (unsigned int)x)
 		return (0);
@@ -74,7 +73,7 @@ int	flood_fill_check(t_parser *data)
 		return (0);
 	}
 	pos_ini = data->game->player.pos_int;
-	data->copy[pos_ini.x][pos_ini.y] = 1;
+	data->copy[pos_ini.y][pos_ini.x] = '1';
 	while (pos_ini.x >= 0)
 	{
 		if (!flood_fill(data, pos_ini.x, pos_ini.y))
