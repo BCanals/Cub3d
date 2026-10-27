@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:05:24 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/26 19:28:50 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:04:41 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ uint32_t	get_wall_pixel(t_game *game, t_vec2 *impact, char orientation)
 	else
 		wall = game->walls[EAST];
 	x = fmin(impact->x * wall->width, wall->width - 1);
-	if (orientation == 'E' || orientation == 'N')
-		x = (127 + (127 - x)) + 1;
 	y = fmin(impact->y * wall->height, wall->height - 1);
 	inv = ((uint32_t *)wall->pixels)[y * wall->width + x];
 	return (((inv & 0xFF) << 24) | ((inv & 0xFF00) << 8)
