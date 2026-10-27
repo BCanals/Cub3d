@@ -6,7 +6,7 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/10/08 20:27:15 by becanals         ###   ########.fr        #
+#    Updated: 2026/10/27 18:57:20 by lartes-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 DEP = $(SRC:%.c=$(OBJ_DIR)/%.d)
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 -fsanitize=address
+CCFLAGS = -Wall -Wextra -Werror -g -O3 -fsanitize=address
 
 INCLUDES = -I$(LIBFT_DIR) -I$(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
@@ -56,7 +56,7 @@ libft:
 libmlx:
 	cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-$(OBJ_DIR)/%.o: %.c | Makefile $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.c Makefile | $(OBJ_DIR)
 	mkdir -p $(dir $@)
 	$(CC) $(CCFLAGS) -MMD -MP $(INCLUDES) -c $< -o $@
 
