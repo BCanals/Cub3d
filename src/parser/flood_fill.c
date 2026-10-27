@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/13 18:59:19 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:44:33 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ static char	**copy_array(char **array)
 
 static int	flood_fill(t_parser *data, int x, int y)
 {
+
+	if (y == data->game->map.n_rows)
+		return (0);
 	if (ft_strlen(data->copy[y]) <= (unsigned int)x)
 		return (0);
 	if (data->copy[y][x] == ' ')
@@ -47,7 +50,7 @@ static int	flood_fill(t_parser *data, int x, int y)
 	if (data->copy[y][x] == '1')
 		return (1);
 	data->copy[y][x] = '1';
-	if (y == 0 || y == data->game->map.n_rows || x == 0)
+	if (y == 0 || x == 0)
 		return (0);
 	if (!flood_fill(data, x + 1, y))
 		return (0);
@@ -70,17 +73,13 @@ int	flood_fill_check(t_parser *data)
 		printf("%s%s", ERR, MALL_ERR);
 		return (0);
 	}
-	pos_ini = find_in_array(data->copy, '0');
+	pos_ini = data->game->player.pos_int;
+	data->copy[pos_ini.x][pos_ini.y] = 1;
 	while (pos_ini.x >= 0)
 	{
 		if (!flood_fill(data, pos_ini.x, pos_ini.y))
-		{
-			printf("%s%s", ERR, MAP_OPEN);
-			break ;
-		}
+			return (printf("%s%s", ERR, MAP_OPEN), 0);
 		pos_ini = find_in_array(data->copy, '0');
 	}
-	if (pos_ini.x >= 0)
-		return (0);
 	return (1);
 }
