@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/26 19:28:52 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/27 19:33:25 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_vint2
 typedef struct s_player
 {
 	t_vec2	pos;
+	t_vint2 pos_int;
 	float	dir;
 	char	c;
 }				t_player;

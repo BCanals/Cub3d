@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:22:30 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:58:50 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/27 19:35:50 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,6 @@ int	load_map(t_parser *data)
 		data->game->map.map[i++] = data->line;
 		data->line = get_next_line(data->fd, &data->buffer);
 	}
-	if (!flood_fill_check(data))
-		return (0);
 	return (1);
 }
 
@@ -116,6 +114,8 @@ int	parse_map(t_parser *data)
 	data->game->map.n_cols = max;
 	data->game->map.n_rows = ++i;
 	if (!set_player(data))
+		return (0);
+	if (!flood_fill_check(data))
 		return (0);
 	return (1);
 }
