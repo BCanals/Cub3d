@@ -6,7 +6,7 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/28 15:47:58 by bizcru            #+#    #+#              #
-#    Updated: 2026/04/25 20:12:59 by lartes-s         ###   ########.fr        #
+#    Updated: 2026/10/27 20:00:44 by lartes-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ SRCS = ft_islower.c \
 
 OBJS = $(SRCS:.c=.o)
 
-%.o: %.c
+%.o: %.c Makefile
 	gcc $(CFLAGS) -I. -c $< -o $@
 
 all: $(NAME)
