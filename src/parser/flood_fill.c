@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/27 21:55:32 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/30 17:32:14 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char	**copy_array(char **array)
 	i = -1;
 	while (array[++i])
 	{
-		copy[i] = strdup(array[i]);
+		copy[i] = ft_strdup(array[i]);
 		if (!copy[i])
 		{
 			ft_free_array(copy);

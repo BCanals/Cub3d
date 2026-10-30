@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:39:49 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/27 19:59:10 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/30 17:26:02 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ static void	set_margin(t_game *game, t_vec2 *new, t_vint2 *map)
 static void	apply_movement(t_game *game, t_vec2 *new)
 {
 	t_vint2	map;
-	t_vint2 curr_map;
-	float 	margin;
+	t_vint2	curr_map;
 
-	margin = 0.2;
 	map.x = floorf(new->x) - 1;
 	map.y = floorf(new->y) - 1;
 	set_margin(game, new, &map);
@@ -42,13 +40,13 @@ static void	apply_movement(t_game *game, t_vec2 *new)
 	if (map.y >= 0 && map.y < game->map.n_rows
 		&& map.x >= 0 && map.x < game->map.n_cols)
 	{
-        if (game->map.map[curr_map.y][map.x] != '1')
-        {
-            game->player.pos.x = new->x;
-            curr_map.x = floorf(game->player.pos.x) - 1; 
-        }
-        if (game->map.map[map.y][curr_map.x] != '1')
-            game->player.pos.y = new->y;
+		if (game->map.map[curr_map.y][map.x] != '1')
+		{
+			game->player.pos.x = new->x;
+			curr_map.x = floorf(game->player.pos.x) - 1;
+		}
+		if (game->map.map[map.y][curr_map.x] != '1')
+			game->player.pos.y = new->y;
 	}
 }
 

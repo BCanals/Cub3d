@@ -6,7 +6,7 @@
 #    By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/18 20:56:00 by lartes-s          #+#    #+#              #
-#    Updated: 2026/10/27 18:57:20 by lartes-s         ###   ########.fr        #
+#    Updated: 2026/10/30 17:34:33 by lartes-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 DEP = $(SRC:%.c=$(OBJ_DIR)/%.d)
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror -g -O3 -fsanitize=address
+CCFLAGS = -Wall -Wextra -Werror -O3
 
 INCLUDES = -I$(LIBFT_DIR) -I$(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm

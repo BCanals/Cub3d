@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loaders.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 22:12:43 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/18 21:53:47 by bizcru           ###   ########.fr       */
+/*   Created: 2026/09/27 22:12:43 by becanals          #+#    #+#             */
+/*   Updated: 2026/10/30 17:31:15 by lartes-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_game	*load_t_game(void)
 {
 	t_game	*game;
 
-	game = calloc(sizeof(t_game), 1);
+	game = ft_calloc(sizeof(t_game), 1);
 	if (!game)
 	{
 		printf("Error on malloc: %s\n", strerror(errno));
