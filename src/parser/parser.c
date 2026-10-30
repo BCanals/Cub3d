@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 18:31:47 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/18 17:23:37 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/30 19:52:37 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ static int	load_scene(t_parser *data)
 			return (clean_t_parser(data), 0);
 		free(data->line);
 		data->line = get_next_line(data->fd, &data->buffer);
+	}
+	if (data->line_type != MAP)
+	{
+		printf("%sMissing information in the scene file\n", ERR);
+		clean_t_parser(data);
+		return (0);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 18:56:40 by lartes-s          #+#    #+#             */
-/*   Updated: 2026/10/27 19:33:25 by becanals         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:12:07 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 # define TEX_EMPTY "No path provided\n"
 # define TEX_REP "Repeated texture definition on line: "
 # define RGB_EMPTY "No color params provided\n"
-# define RGB_FORM_ERR "Wrong format. Expected R,G,B colors in range [0,255]\n"
+# define RGB_FORM_ERR "Wrong format. Expected R,G,B colors in range [0,255].\n"
 
 # define PI 3.14159265359
 # define PI_2 1.5707963267
@@ -73,7 +73,7 @@ typedef struct s_vint2
 typedef struct s_player
 {
 	t_vec2	pos;
-	t_vint2 pos_int;
+	t_vint2	pos_int;
 	float	dir;
 	char	c;
 }				t_player;

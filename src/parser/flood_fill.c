@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 16:13:35 by becanals          #+#    #+#             */
-/*   Updated: 2026/10/30 17:32:14 by lartes-s         ###   ########.fr       */
+/*   Updated: 2026/10/30 20:02:24 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	flood_fill_check(t_parser *data)
 		return (0);
 	}
 	pos_ini = data->game->player.pos_int;
-	data->copy[pos_ini.y][pos_ini.x] = '1';
+	data->copy[pos_ini.y][pos_ini.x] = '0';
 	while (pos_ini.x >= 0)
 	{
 		if (!flood_fill(data, pos_ini.x, pos_ini.y))

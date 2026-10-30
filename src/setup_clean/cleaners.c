@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 22:17:49 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/18 21:30:01 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/30 20:08:10 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	clean_t_game(t_game *game)
 	if (game->mlx)
 	{
 		while (++i < 4)
-			mlx_delete_image(game->mlx, game->walls[i]);
+			if (game->walls[i])
+				mlx_delete_image(game->mlx, game->walls[i]);
 		mlx_terminate(game->mlx);
 		game->mlx = NULL;
 	}

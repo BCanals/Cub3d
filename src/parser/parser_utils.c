@@ -6,7 +6,7 @@
 /*   By: lartes-s <lartes-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 22:09:21 by bizcru            #+#    #+#             */
-/*   Updated: 2026/10/09 20:58:31 by bizcru           ###   ########.fr       */
+/*   Updated: 2026/10/30 19:14:46 by becanals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static int	load_rgb(t_parser *parser, char *str)
 		if (loop < 2 && !*str)
 			return (0);
 		if (loop < 2 && *str != ',')
+			return (0);
+		if (loop == 2 && (*str != '\n' && *str != 0))
 			return (0);
 		else
 			str++;
